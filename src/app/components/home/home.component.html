@@ -4,158 +4,67 @@
     <div class="main-wrapper">
         <main class="d-block pb-2">
           <div class="news-wrapper">
-            <!-- 1.çeşit -->
+            <!-- type 1 -->
             <section class="news-h version-1 w-100 pb-4" >
               <div class=" carts-grid mt-2 ">
                 <ul role="list">
-                  <li>
+                  <li *ngFor="let article1 of homeArticles| slice:0:1;">
                     <div class="cart">
                       <div class="cart-image">
-                        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/4b45/live/33fe4aa0-2316-11ee-941e-23d1e9ab75fa.jpg" alt="">
+                        <img src="{{article1.urlToImage}}" style="max-width: 600px; max-height: 400px;" alt="600x400 image">
                       </div>
                       <div class="cart-detail">
                         <h3>
-                          <a href="#">Ukrayna, Wagner paralı askerlerinin Belarus'a gittiğini doğruladı</a>
+                          <a href="{{article1.url}}" >{{article1.title}}</a>
                         </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                          Facere, recusandae. Voluptatem unde, 
-                          enim rem explicabo a odit quia veniam excepturi.
-                        </p>
-                        <div>
-                          <h4>ilgili haberler</h4>
-                          <ol>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat, hic.</li>
-                            <li>ilgili haber başlıgı yazısı</li>
-                            <li>ilgili haber başlıgı yazısı</li>
-                          </ol>
-                        </div>
+                        <p>{{article1.description}}</p>
+                        <div class="date text-secondary">{{article1.publishedAt | date: 'MMM d, y'}}</div>
                       </div>
                     </div>
                   </li>
     
-                  <li>
+                  <li  *ngFor="let article1 of homeArticles | slice:1:5;">
                     <div>
                       <div>
-                        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/4b45/live/33fe4aa0-2316-11ee-941e-23d1e9ab75fa.jpg" alt="">
+                        <img src="{{article1.urlToImage}}" alt="">
                       </div>
                       <div>
                         <h5>
-                          <a href="#">Ukrayna, Wagner paralı askerlerinin Belarus'a gittiğini doğruladı</a>
+                          <a href="{{article1.url}}">{{article1.title}}</a>
+                          <div class="date mt-2 text-secondary">{{article1.publishedAt | date: 'MMM d, y'}}</div>
                         </h5>
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <div>
-                      <div>
-                        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/4b45/live/33fe4aa0-2316-11ee-941e-23d1e9ab75fa.jpg" alt="">
-                      </div>
-                      <div>
-                        <h5>
-                          <a href="#">Ukrayna, Wagner paralı askerlerinin Belarus'a gittiğini doğruladı</a>
-                        </h5>
-                      </div>
-                    </div>
-                  </li>
-    
-                  <li>
-                    <div>
-                       <div>
-                        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/4b45/live/33fe4aa0-2316-11ee-941e-23d1e9ab75fa.jpg" alt="">
-                      </div>
-                      <div>
-                        <h5>
-                          <a href="#">Ukrayna, Wagner paralı askerlerinin Belarus'a gittiğini doğruladı</a>
-                        </h5>
-                      </div>
-                    </div>
-                  </li>
-    
-                  <li>
-                    <div>
-                      <div>
-                        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/4b45/live/33fe4aa0-2316-11ee-941e-23d1e9ab75fa.jpg" alt="">
-                      </div>
-                      <div>
-                        <h5>
-                          <a href="#">Ukrayna, Wagner paralı askerlerinin Belarus'a gittiğini doğruladı</a>
-                        </h5>
-                      </div>
-                    </div>
-                  </li>
-    
-                  
                 </ul>
               </div>
               </section>
     
-               <!-- 2.çeşit -->
-              <section class="news-h version-2 w-100">
+               <!-- type 2 -->
+               
+              <section class="news-h version-2 w-100 mt-5">
                 <div class=" carts-grid mt-2 ">
                   <div class="subtitle">
                     <h2>
                       <a href="#">
                         <div class="d-flex justify-content-between">
-                          <span class="fs-2 ps-4">Dünya</span>
-                          <span class="fs-6 pt-2">Diğer Haberler</span>
+                          <span class="fs-2 ps-4">News</span>
+                          <span class="fs-6 pt-2">Other News</span>
                         </div>
                       </a>
                     </h2>
                   </div>
                   <ul class="pt-2" role="list">
-                    <li>
+                    <li *ngFor="let article2 of homeArticles | slice:5:13;">
                       <div class="list">
                         <div>
-                          <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
+                          <img src="{{article2.urlToImage}}"
                             alt="">
                         </div>
                         <div>
                           <h5>
-                            <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                              eleştiriler için ne diyor?</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="list">
-                        <div>
-                          <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                            alt="">
-                        </div>
-                        <div>
-                          <h5>
-                            <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                              eleştiriler için ne diyor?</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </li>
-              
-                    <li>
-                      <div class="list">
-                        <div>
-                          <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                            alt="">
-                        </div>
-                        <div>
-                          <h5>
-                            <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                              eleştiriler için ne diyor?</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="list">
-                        <div>
-                          <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                            alt="">
-                        </div>
-                        <div>
-                          <h5>
-                            <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                              eleştiriler için ne diyor?</a>
+                            <a href="{{article2.url}}">{{article2.title}}</a>
+                            <div class="date mt-2 text-secondary">{{article2.publishedAt | date: 'MMM d, y'}}</div>
                           </h5>
                         </div>
                       </div>
@@ -163,15 +72,16 @@
                   </ul>
                 </div>
               </section>
-              <!-- 3.çeşit -->
+
+              <!-- type 3 -->
              <section class="news-h version-3 w-100">
-                <div class="mt-2">
+                <div class="mt-2" *ngFor="let article3 of homeArticles | slice:14:20;">
                   <div class="subtitle pb-2">
                     <h2>
-                      <a href="#">
-                        <div class="d-flex justify-content-between mb-4">
-                          <span class="fs-2 ps-4">Dünya</span>
-                          <span class="fs-6 pt-2">Diğer Haberler</span>
+                      <a href="{{article3.url}}">
+                        <div class="d-flex justify-content-between mb-3 mt-5 pt-5">
+                          <span class="fs-2 ps-4">{{article3.source.name}}</span>
+                          <span class="fs-6 pt-2">other news</span>
                         </div>
                       </a>
                     </h2>
@@ -180,16 +90,15 @@
                     <div>
                       <div class="one-cart">
                         <div class="image">
-                          <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
+                          <img src="{{article3.urlToImage}}"
                             alt="">
                         </div>
                         <div class="desc">
                           <h3>
-                            <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                              eleştiriler için ne diyor?</a>
+                            <a href="{{article3.url}}">{{article3.title}}</a>
                           </h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus distinctio excepturi debitis consequatur saepe illo accusantium veritatis, sed facere ex magni eaque quidem assumenda voluptatibus, sint ratione iste enim. Velit, vel fugit! Nemo quos quis sit! Similique odit voluptatum quas.</p>
-                          <span class="date">date now</span>
+                          <p>{{article3.description}}</p>
+                          <div class="date text-secondary">{{article3.publishedAt | date: 'MMM d, y'}}</div>
                         </div>
                       </div>
                     </div>
@@ -206,15 +115,16 @@
       <!-- part that looks dynamic by categories -->
       <ng-template #otherNews>
         <section class="news-h categories w-100">
-          <div class=" carts-grid mt-2 ">
+          <div class=" carts-grid mt-3 ">
             <div class="subtitle">
               <h2>
                   <div class="d-flex justify-content-between">
-                    <span class="fs-1 ps-4 pb-3">Dünya</span>
+                    <span class="fs-1 ps-4 pb-1">Dünya</span>
                   </div>
               </h2>
             </div>
-            <ul class="pt-2" role="list">
+        
+            <ul *ngFor="let article of categoryArticles"  class="" role="list">
               <li>
                 <div class="list">
                   <div>
@@ -222,239 +132,14 @@
                   </div>
                   <div>
                     <h5>
-                      <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                        eleştiriler için ne diyor?</a>
+                      <a href=""></a>
                     </h5>
-                    <span class=" mb-4 text-secondary">yayınlanan tarih</span>
+                    <span class="mb-4 text-secondary"></span>
                   </div>
                 </div>
-              </li>
-              <li>
-                <div class="list">
-                  <div>
-                    <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                      alt="">
-                  </div>
-                  <div>
-                    <h5>
-                      <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, recusandae?</a>
-                    </h5>
-                    <span class=" mb-4 text-secondary">8 ekim</span>
-                  </div>
-                </div>
-              </li>
-        
-              <li>
-                <div class="list">
-                  <div>
-                    <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                      alt="">
-                  </div>
-                  <div>
-                    <h5>
-                      <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                        eleştiriler için ne diyor?</a>
-                    </h5>
-                    <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="list">
-                  <div>
-                    <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                      alt="">
-                  </div>
-                  <div>
-                    <h5>
-                      <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                        eleştiriler için ne diyor?</a>
-                    </h5>
-                    <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                  </div>
-                </div>
-              </li>
-      
-              <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, recusandae?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">8 ekim</span>
-                    </div>
-                  </div>
-                </li>
-          
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-      
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, recusandae?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">8 ekim</span>
-                    </div>
-                  </div>
-                </li>
-          
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-      
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, recusandae?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">8 ekim</span>
-                    </div>
-                  </div>
-                </li>
-          
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class=" mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="list">
-                    <div>
-                      <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg"
-                        alt="">
-                    </div>
-                    <div>
-                      <h5>
-                        <a href="#">İngiltere'de pratisyen doktorların en uzun grevi başladı: Neden iş bıraktılar, hükümet
-                          eleştiriler için ne diyor?</a>
-                      </h5>
-                      <span class="mb-4 text-secondary">yayınlanan tarih</span>
-                    </div>
-                  </div>
-                </li>
+              </li> 
             </ul>
+        
           </div>
         </section>
       </ng-template>

@@ -1,9 +1,21 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
+  constructor(private http: HttpClient, private router: Router) {}
+   
+  key = "c2571d3d3f6a4194a3f15f4f1d5f1249";
 
-  constructor() { }
+   get Sources(){
+    return this.http.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=" + this.key)
+  }
+  
+   getArticlesByCategory(category: any){
+    return this.http.get("https://newsapi.org/v2/top-headlines?country=tr&category="+ category + "&apiKey=" + this.key)       
+  } 
 }

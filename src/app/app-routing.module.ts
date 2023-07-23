@@ -6,8 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent, children: [
-    {path:'news', component: HomeComponent},
-    {path:'business', component: HomeComponent},
+    {path:'news', component: CategoriesComponent},
+    {path:'business', component: CategoriesComponent},
     {path:'entertainment', component: CategoriesComponent},
     {path:'health', component: CategoriesComponent},
     {path:'science', component: CategoriesComponent},
@@ -20,6 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
-
-}
+export class AppRoutingModule {}

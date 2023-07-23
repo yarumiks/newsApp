@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {faNewspaper} from '@fortawesome/free-regular-svg-icons'
+import { AppComponent } from 'src/app/app.component';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,26 @@ import {faNewspaper} from '@fortawesome/free-regular-svg-icons'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  fa = faNewspaper
-  constructor(public route: Router){}
- 
-  // viewComponent(): any{
-  //   if(this.route.url === "/" || this.route.url === "/news"){
-  //     return this.route.url;
-  //   }
-  //   return this.route.url === '';
-  // }
+  fa = faNewspaper;
+  homeArticles: any[] = [];
+  categoryArticles: any= [];
+  times: any= [];
+  constructor(public route: Router, private app: AppComponent, public news: NewsService){}
+
+  ngOnInit(){
+    this.news.Sources.subscribe((res: any) =>{
+      console.log(res);
+      this.homeArticles = res.articles;
+    })
+  }
+
+  ngAfterViewInit() {
+    let deneme = this.app.selectedCategory();
+    console.log(deneme);
+    
+  }
 }
+
+
+
+
