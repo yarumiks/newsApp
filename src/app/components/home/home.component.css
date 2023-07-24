@@ -134,6 +134,7 @@ li{
 
 img{
     width: -webkit-fill-available;
+    max-height: 300px;
 }
 img:hover{
     opacity: .7;

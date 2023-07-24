@@ -124,22 +124,21 @@
               </h2>
             </div>
         
-            <ul *ngFor="let article of categoryArticles"  class="" role="list">
-              <li>
+            <ul class="" role="list">
+              <li *ngFor="let category of detailArticles">
                 <div class="list">
                   <div>
-                    <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/7e55/live/ffa23540-2168-11ee-b2f1-ef292ae63bd4.jpg">
+                    <img src="{{category.urlToImage}}" style="max-height: 130px;">
                   </div>
                   <div>
                     <h5>
-                      <a href=""></a>
+                      <a href="{{category.url}}">{{category.title}}</a>
                     </h5>
-                    <span class="mb-4 text-secondary"></span>
+                    <span class="mb-4 text-secondary">{{category.publishedAt | date: 'MMM d, y'}}</span>
                   </div>
                 </div>
               </li> 
             </ul>
-        
           </div>
         </section>
       </ng-template>

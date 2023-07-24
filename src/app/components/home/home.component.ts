@@ -12,22 +12,19 @@ import { NewsService } from 'src/app/services/news.service';
 export class HomeComponent {
   fa = faNewspaper;
   homeArticles: any[] = [];
-  categoryArticles: any= [];
-  times: any= [];
-  constructor(public route: Router, private app: AppComponent, public news: NewsService){}
+  detailArticles: any[] = [];
+  constructor(public route: Router, private appC: AppComponent, public news: NewsService){}
 
   ngOnInit(){
     this.news.Sources.subscribe((res: any) =>{
-      console.log(res);
       this.homeArticles = res.articles;
     })
   }
 
-  ngAfterViewInit() {
-    let deneme = this.app.selectedCategory();
-    console.log(deneme);
-    
+  ngDoCheck(){
+    this.detailArticles = this.appC.articles;
   }
+
 }
 
 
