@@ -21,12 +21,19 @@ export class AppComponent {
 
 
   selectedCategory() {
-       const routerName = this.router.url.replace("/", "");
-       console.log(routerName);
-       this.news.getArticlesByCategory(routerName).subscribe((d: any) => {
-      this.articles = d.articles;
-    })
+    const routerName = this.router.url.replace("/", "");
+    if (routerName == "news") {
+      this.news.getEverything().subscribe((d: any) => {
+        this.articles = d.articles;
+      })
+    } else {
+      this.news.getArticlesByCategory(routerName).subscribe((d: any) => {
+        this.articles = d.articles;
+
+      })
+    }
   }
+
 }
 
 

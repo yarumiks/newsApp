@@ -107,7 +107,7 @@ section{
 }
 a{
     text-decoration: none;
-    color: black;
+    color: black;  
 }
 a:hover{
     text-decoration: underline;
@@ -117,7 +117,7 @@ li{
 }
 h5{
     padding-top: .7rem;
-    font-size: 1.14rem;
+    font-size: 1.05rem;
     margin-bottom: 0;
 }
 li{

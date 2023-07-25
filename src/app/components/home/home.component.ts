@@ -4,6 +4,7 @@ import {faNewspaper} from '@fortawesome/free-regular-svg-icons'
 import { AppComponent } from 'src/app/app.component';
 import { NewsService } from 'src/app/services/news.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,6 +12,7 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class HomeComponent {
   fa = faNewspaper;
+  
   homeArticles: any[] = [];
   detailArticles: any[] = [];
   constructor(public route: Router, private appC: AppComponent, public news: NewsService){}
