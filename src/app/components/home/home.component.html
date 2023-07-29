@@ -24,11 +24,11 @@
                   </li>
     
                   <li  *ngFor="let article1 of homeArticles | slice:1:5;">
-                    <div>
-                      <div>
+                    <div class="o-cart">
+                      <div class="o-cart-image">
                         <img src="{{article1.urlToImage}}" alt="">
                       </div>
-                      <div>
+                      <div class="o-cart-detail">
                         <h5>
                           <a href="{{article1.url}}">{{article1.title}}</a>
                           <div class="date mt-2 text-secondary">{{article1.publishedAt | date: 'MMM d, y'}}</div>
@@ -57,11 +57,11 @@
                   <ul class="pt-2" role="list">
                     <li *ngFor="let article2 of homeArticles | slice:5:13;">
                       <div class="list">
-                        <div>
+                        <div class="list-img">
                           <img [src]="article2.urlToImage!=null ? article2.urlToImage : 'assets/img/defaultImg.jpg'"
                             alt="">
                         </div>
-                        <div>
+                        <div class="list-title">
                           <h5>
                             <a href="{{article2.url}}">{{article2.title}}</a>
                             <div class="date mt-2 text-secondary">{{article2.publishedAt | date: 'MMM d, y'}}</div>
@@ -115,7 +115,7 @@
       <!-- part that looks dynamic by categories -->
       <ng-template #otherNews>
         <section class="news-h categories w-100">
-          <div class=" carts-grid mt-3 ">
+          <div class="carts-grid mt-3 ">
             <div class="subtitle">
               <h2>
                   <div class="d-flex justify-content-between">
@@ -124,21 +124,21 @@
               </h2>
             </div>
         
-            <ul class="" role="list">
-              <li *ngFor="let category of detailArticles">
-                <div class="list">
-                  <div>
-                    <img [src]="category.urlToImage!= null || undefined ? category.urlToImage : 'assets/img/defaultImg.jpg'" style="max-height: 130px;">
+            <dl class="pt-2" role="list">
+              <dd *ngFor="let category of detailArticles">
+                <div class="list-detail_page">
+                  <div class="detail-img">
+                    <img [src]="category.urlToImage!= null || undefined ? category.urlToImage : 'assets/img/defaultImg.jpg'">
                   </div>
-                  <div>
+                  <div class="detail-title">
                     <h5>
                       <a href="{{category.url}}">{{category.title}}</a>
                     </h5>
                     <span class="mb-4 text-secondary">{{category.publishedAt | date: 'MMM d, y'}}</span>
                   </div>
                 </div>
-              </li> 
-            </ul>
+              </dd> 
+            </dl>
           </div>
         </section>
       </ng-template>
