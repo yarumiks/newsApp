@@ -2,7 +2,7 @@ import { Component, ElementRef, Injectable, ViewChild, inject } from '@angular/c
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 import { NewsService } from './services/news.service';
 import { Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, concatMap, debounceTime, delay, exhaustMap, finalize, fromEvent, map, merge, mergeMap, switchMap, timer } from 'rxjs';
 import { HomeComponent } from './components/home/home.component';
 
 
@@ -15,26 +15,35 @@ export class AppComponent {
   title = 'newsApp';
   fa = faNewspaper;
   articles: any = [];
-
+  clicks= new Subject<void>();
+  loading: boolean = false;
+  
   constructor(public news: NewsService, private router: Router) {}
+  
+  ngOnInit(){
+  }
 
-
-
+  // this loading variable disables the click event of 
+  //the li elements until the result is returned when 
+  //the request comes from the api.
   selectedCategory() {
     const routerName = this.router.url.replace("/", "");
+    this.loading = true;
+
     if (routerName == "news") {
-      this.news.getEverything().subscribe((d: any) => {
+      this.news.getEverything().
+      pipe(
+    finalize(() => this.loading = false)).
+      subscribe((d: any) => {
         this.articles = d.articles;
       })
     } else {
-      this.news.getArticlesByCategory(routerName).subscribe((d: any) => {
+      this.news.getArticlesByCategory(routerName).
+      pipe(
+    finalize(() => this.loading = false)).
+      subscribe((d: any) => {
         this.articles = d.articles;
-
       })
-    }
   }
-
 }
-
-
-
+}

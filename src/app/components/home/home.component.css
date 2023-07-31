@@ -195,7 +195,7 @@ div.desc{
 }
 .categories dd{
     display: inline-block;
-   width: calc(21% - .70rem);
+   width: calc(25% - .5rem);
    padding-left: 1rem;
 }
 .categories dl{
@@ -236,7 +236,7 @@ img:hover{
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        height: 250px;
+        height: 230px;
         
     }
     .detail-img > img{
