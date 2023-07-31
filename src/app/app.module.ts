@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HomeComponent } from './components/home/home.component';
-import { HttpClientModule, HttpClient} from '@angular/common/http';
-
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
+import { InterceptorService } from './services/interceptor.service';
 
 
 
@@ -23,8 +24,13 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    MatProgressBarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

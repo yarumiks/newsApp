@@ -4,6 +4,7 @@ import { NewsService } from './services/news.service';
 import { Router } from '@angular/router';
 import { Observable, Subject, concatMap, debounceTime, delay, exhaustMap, finalize, fromEvent, map, merge, mergeMap, switchMap, timer } from 'rxjs';
 import { HomeComponent } from './components/home/home.component';
+import { LoaderService } from './services/loader.service';
 
 
 @Component({
@@ -15,10 +16,9 @@ export class AppComponent {
   title = 'newsApp';
   fa = faNewspaper;
   articles: any = [];
-  clicks= new Subject<void>();
   loading: boolean = false;
   
-  constructor(public news: NewsService, private router: Router) {}
+  constructor(public news: NewsService, private router: Router, public loaderService: LoaderService) {}
   
   ngOnInit(){
   }
@@ -33,9 +33,14 @@ export class AppComponent {
     if (routerName == "news") {
       this.news.getEverything().
       pipe(
-    finalize(() => this.loading = false)).
-      subscribe((d: any) => {
-        this.articles = d.articles;
+    finalize(
+      () => 
+      this.loading = false
+      )).
+      subscribe(
+(d: any) =>
+         {
+            this.articles = d.articles;
       })
     } else {
       this.news.getArticlesByCategory(routerName).
@@ -43,6 +48,8 @@ export class AppComponent {
     finalize(() => this.loading = false)).
       subscribe((d: any) => {
         this.articles = d.articles;
+        console.log(this.articles);
+        
       })
   }
 }

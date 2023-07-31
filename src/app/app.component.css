@@ -40,3 +40,9 @@ header li{
 }
 }
 
+.mat-mdc-progress-bar.mat-accent{
+    --mdc-linear-progress-active-indicator-color: #2979ff; 
+}
+
+::ng-deep .mat-mdc-progress-bar.mat-accent .mdc-linear-progress_buffer-bar { background: #2979ff; }
+

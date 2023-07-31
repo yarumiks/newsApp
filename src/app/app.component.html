@@ -1,3 +1,6 @@
+<div *ngIf="loaderService.loader | async">
+  <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+</div>
 
 <header  class="w-100 position-relative top-0">
     <div id="logo">
