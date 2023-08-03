@@ -6,12 +6,12 @@
           <div class="news-wrapper">
             <!-- type 1 -->
             <section class="news-h version-1 w-100 pb-4" >
-              <div class=" carts-grid mt-2 ">
+              <div class=" carts-grid mt-3 ">
                 <ul role="list">
                   <li *ngFor="let article1 of homeArticles| slice:0:1;">
                     <div class="cart">
                       <div class="cart-image">
-                        <img src="{{article1.urlToImage}}" style="max-width: 600px; max-height: 400px;" alt="600x400 image">
+                        <img src="{{article1.urlToImage}}" style="max-width: 500px; max-height: 400px;" alt="500x400 image">
                       </div>
                       <div class="cart-detail">
                         <h3>
@@ -44,7 +44,7 @@
                
               <section class="news-h version-2 w-100 mt-5">
                 <div class=" carts-grid mt-2 ">
-                  <div class="subtitle">
+                  <div class="subtitle pb-3">
                     <h2>
                       <a href="#">
                         <div class="d-flex justify-content-between">
@@ -75,8 +75,8 @@
 
               <!-- type 3 -->
              <section class="news-h version-3 w-100">
-                <div class="mt-2" *ngFor="let article3 of homeArticles | slice:14:20;">
-                  <div class="subtitle pb-2">
+                <div class="m-4 p-3" *ngFor="let article3 of homeArticles | slice:14:20;">
+                  <div class="subtitle pb-3">
                     <h2>
                       <a href="{{article3.url}}">
                         <div class="d-flex justify-content-between mb-3 mt-5 pt-5">

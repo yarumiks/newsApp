@@ -12,7 +12,8 @@ const routes: Routes = [
     {path:'health', component: HomeComponent},
     {path:'science', component: HomeComponent},
     {path:'sports', component: HomeComponent},
-    {path:'technology', component: HomeComponent}
+    {path:'technology', component: HomeComponent},
+    {path: '**', redirectTo: '', pathMatch: 'full' }
   ]},
 ];
 

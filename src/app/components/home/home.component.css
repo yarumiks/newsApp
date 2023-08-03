@@ -39,7 +39,7 @@ h5{
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-column-end: span 8;
-    gap: 1rem;
+    gap: 3rem 1rem;
 }
 
 .version-1 li:first-child{
@@ -47,10 +47,10 @@ h5{
 }
 .version-1 img:first-child{
     grid-area: 1 / 1 / 2/ 7;
+    max-height: 130px;
 }
 .version-1 .cart-detail{
     grid-area: 1 / 7 / 2 / 13;
-    width: 320px;
 }
 
 .version-1 .cart{
@@ -66,13 +66,14 @@ column-gap: .18rem;
 
 img{
     width: -webkit-fill-available;
+    max-height: 280px;
 }
 img:hover{
     opacity: .7;
 }
-/* div.version-2  img{
-    max-height: 130px;
-} */
+.list-img  img{
+    max-height: 120px;
+}
 ol{
     font-size: .887rem;
 }
@@ -121,15 +122,17 @@ div.desc{
      column-gap: 20px;
     }
     .version-1 .o-cart-image, .list-img{
-     width: initial;
-     grid-column: 1 / span 2;
+        width: initial;
+        grid-column: 1 / span 2;
+        padding-right: 10px;
+        max-height: 130px;
     }
     .version-1 .o-cart-detail,  .list-title{
      display: block;
      width: initial;
      grid-column: 3 / span 4;
     }
-    h3, p{
+     p{
         padding-left: .8rem;
     }
     .one-cart {
@@ -185,7 +188,7 @@ div.desc{
  }
 
  /* CATEGORİES PAGE */
-.categories h5{
+ h5, h3{
    display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
@@ -221,14 +224,14 @@ img:hover{
     position: relative;
 }
 /* REPONSİVE */
-@media (min-width: 34.5rem) and (max-width: 63rem){
+@media (min-width: 34rem) and (max-width: 63rem){
     .categories dd {
     width: calc(50% - .8rem);
     }
     .detail-title{
         position: relative;
     }
-    .categories h5{
+     h5, h3{
         -webkit-line-clamp: 2;
     }
     .detail-img{
