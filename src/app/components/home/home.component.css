@@ -182,11 +182,14 @@ div.desc{
         margin-top: .5rem;
         font-size: 1rem;
     }
+    h3{
+        padding-top: 0.6rem;
+    }
   
  }
 
  /* CATEGORİES PAGE */
- h5, h3{
+h5, h3{
    display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  

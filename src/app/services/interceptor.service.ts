@@ -14,7 +14,7 @@ export class InterceptorService implements HttpInterceptor {
     this.loaderService.loader.next(true);
 
     return next.handle(req).pipe(
-      delay(500),
+      delay(600),
       finalize(
         ()=> {
           this.loaderService.loader.next(false);

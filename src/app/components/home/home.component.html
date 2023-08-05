@@ -1,6 +1,6 @@
 <div>
     <!-- the part that appears when the page is first opened -->
-    <ng-container *ngIf="this.route.url === '/' else otherNews;">
+    <ng-container *ngIf="this.route.url === '/' else otherNews">
     <div class="main-wrapper">
         <main class="d-block pb-2">
           <div class="news-wrapper">
@@ -8,7 +8,7 @@
             <section class="news-h version-1 w-100 pb-4" >
               <div class=" carts-grid mt-3 ">
                 <ul role="list">
-                  <li *ngFor="let article1 of homeArticles| slice:0:1;">
+                  <li *ngFor="let article1 of homeArticles| slice:0:1;" role="listitem">
                     <div class="cart">
                       <div class="cart-image">
                         <img src="{{article1.urlToImage}}" style="max-width: 500px; max-height: 400px;" alt="500x400 image">
@@ -23,7 +23,7 @@
                     </div>
                   </li>
     
-                  <li  *ngFor="let article1 of homeArticles | slice:1:5;">
+                  <li  *ngFor="let article1 of homeArticles | slice:1:5;" role="listitem">
                     <div class="o-cart">
                       <div class="o-cart-image">
                         <img src="{{article1.urlToImage}}" alt="">
@@ -31,8 +31,8 @@
                       <div class="o-cart-detail">
                         <h5>
                           <a href="{{article1.url}}">{{article1.title}}</a>
-                          <div class="date mt-2 text-secondary">{{article1.publishedAt | date: 'MMM d, y'}}</div>
                         </h5>
+                        <div class="date mt-2 text-secondary">{{article1.publishedAt | date: 'MMM d, y'}}</div>
                       </div>
                     </div>
                   </li>
@@ -41,12 +41,11 @@
               </section>
     
                <!-- type 2 -->
-               
               <section class="news-h version-2 w-100 mt-5">
                 <div class=" carts-grid mt-2 ">
                   <div class="subtitle pb-3">
                     <h2>
-                      <a href="#">
+                      <a>
                         <div class="d-flex justify-content-between">
                           <span class="fs-2 ps-4">News</span>
                           <span class="fs-6 pt-2">Other News</span>
@@ -54,8 +53,8 @@
                       </a>
                     </h2>
                   </div>
-                  <ul class="pt-2" role="list">
-                    <li *ngFor="let article2 of homeArticles | slice:5:13;">
+                  <ul class="pt-2" style="row-gap: 3rem;" role="list">
+                    <li *ngFor="let article2 of homeArticles | slice:5:13;" role="listitem">
                       <div class="list">
                         <div class="list-img">
                           <img [src]="article2.urlToImage!=null ? article2.urlToImage : 'assets/img/defaultImg.jpg'"
@@ -64,8 +63,8 @@
                         <div class="list-title">
                           <h5>
                             <a href="{{article2.url}}">{{article2.title}}</a>
-                            <div class="date mt-2 text-secondary">{{article2.publishedAt | date: 'MMM d, y'}}</div>
                           </h5>
+                          <div class="date mt-2 text-secondary">{{article2.publishedAt | date: 'MMM d, y'}}</div>
                         </div>
                       </div>
                     </li>
@@ -91,7 +90,7 @@
                       <div class="one-cart">
                         <div class="image">
                           <img [src]="article3.urlToImage!=null ? article3.urlToImage : 'assets/img/defaultImg.jpg'"
-                            alt="">
+                            alt="News-image">
                         </div>
                         <div class="desc">
                           <h3>
@@ -125,10 +124,10 @@
             </div>
         
             <dl class="pt-2" role="list">
-              <dd *ngFor="let category of detailArticles">
+              <dd *ngFor="let category of detailArticles" role="listitem">
                 <div class="list-detail_page">
                   <div class="detail-img">
-                    <img [src]="category.urlToImage!= null || undefined ? category.urlToImage : 'assets/img/defaultImg.jpg'">
+                    <img [src]="category.urlToImage!= null || undefined ? category.urlToImage : 'assets/img/defaultImg.jpg'" alt="NewsImg">
                   </div>
                   <div class="detail-title">
                     <h5>
@@ -144,6 +143,7 @@
       </ng-template>
       
    
+      
   
   </div>
 
