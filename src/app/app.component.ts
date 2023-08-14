@@ -17,10 +17,10 @@ export class AppComponent {
   fa = faNewspaper;
   articles: any = [];
   loading: boolean = false;
-  
-  constructor(public news: NewsService, private router: Router, public loaderService: LoaderService) {}
-  
-  ngOnInit(){
+
+  constructor(public news: NewsService, private router: Router, public loaderService: LoaderService) { }
+
+  ngOnInit() {
   }
 
   // this loading variable disables the click event of 
@@ -32,25 +32,22 @@ export class AppComponent {
 
     if (routerName == "news") {
       this.news.getEverything().
-      pipe(
-    finalize(
-      () => 
-      this.loading = false
-      )).
-      subscribe(
-(d: any) =>
-         {
+        pipe(
+          finalize(
+            () =>
+              this.loading = false
+          )).
+        subscribe(
+          (d: any) => {
             this.articles = d.articles;
-      })
+          })
     } else {
       this.news.getArticlesByCategory(routerName).
-      pipe(
-    finalize(() => this.loading = false)).
-      subscribe((d: any) => {
-        this.articles = d.articles;
-        console.log(this.articles);
-        
-      })
+        pipe(
+          finalize(() => this.loading = false)).
+        subscribe((d: any) => {
+          this.articles = d.articles;
+        })
+    }
   }
-}
 }
