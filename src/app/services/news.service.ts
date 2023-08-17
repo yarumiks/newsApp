@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
-import { debounceTime, delay, timer } from 'rxjs';
+import { Observable, debounceTime, delay, timer } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 
@@ -13,14 +13,14 @@ export class NewsService {
   constructor(private http: HttpClient, private router: Router) {}
    private key: string = environment._key;
 
-   get Sources(){
-    return this.http.get(environment.endPoint1 + this.key).pipe(delay(500))
+    Sources<T extends object[]>(): Observable<T>{
+    return this.http.get<T>(environment.endPoint1 + this.key).pipe(delay(500))
   }
   
-   getArticlesByCategory(category: any){
-    return this.http.get(environment.endPoint2 + category + "&apiKey=" + this.key).pipe(delay(500))
+   getArticlesByCategory<T extends object[]>(category: string): Observable<T>{
+    return this.http.get<T>(environment.endPoint2 + category + "&apiKey=" + this.key).pipe(delay(500))
   } 
-  getEverything(){
-    return this.http.get(environment.endPoint3 + this.key).pipe(delay(500))
+  getEverything<T extends object[]>(): Observable<T>{
+    return this.http.get<T>(environment.endPoint3 + this.key).pipe(delay(500))
   }
 }

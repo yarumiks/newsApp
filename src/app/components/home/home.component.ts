@@ -13,12 +13,12 @@ import { NewsService } from 'src/app/services/news.service';
 export class HomeComponent {
   fa = faNewspaper;
   
-  homeArticles: any[] = [];
-  detailArticles: any[] = [];
+  homeArticles: object[] = [];
+  detailArticles: object[] = [];
   constructor(public route: Router, private appC: AppComponent, public news: NewsService){}
 
   ngOnInit(){
-    this.news.Sources.subscribe((res: any) =>{
+    this.news.Sources().subscribe((res: any) =>{
       this.homeArticles = res.articles;
     })
   }

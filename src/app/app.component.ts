@@ -27,7 +27,7 @@ export class AppComponent {
   //the li elements until the result is returned when 
   //the request comes from the api.
   selectedCategory() {
-    const routerName = this.router.url.replace("/", "");
+    const routerName: string = this.router.url.replace("/", "");
     this.loading = true;
 
     if (routerName == "news") {
