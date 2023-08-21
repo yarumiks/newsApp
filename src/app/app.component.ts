@@ -26,12 +26,12 @@ export class AppComponent {
   // this loading variable disables the click event of 
   //the li elements until the result is returned when 
   //the request comes from the api.
-  selectedCategory() {
+  selectedCategory<T extends object[]>(): void {
     const routerName: string = this.router.url.replace("/", "");
     this.loading = true;
 
     if (routerName == "news") {
-      this.news.getEverything().
+      this.news.getEverything<T>().
         pipe(
           finalize(
             () =>
@@ -42,7 +42,7 @@ export class AppComponent {
             this.articles = d.articles;
           })
     } else {
-      this.news.getArticlesByCategory(routerName).
+      this.news.getArticlesByCategory<T>(routerName).
         pipe(
           finalize(() => this.loading = false)).
         subscribe((d: any) => {
